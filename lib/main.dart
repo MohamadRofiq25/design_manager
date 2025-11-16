@@ -1,22 +1,28 @@
-import 'package:design_manager/presentation/pages/tasklist/tasklist_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:design_manager/presentation/pages/tasklist/tasklist_controller.dart';
+import 'package:design_manager/presentation/pages/review_task/review_task_controller.dart';
+import 'package:design_manager/presentation/pages/reports/reports_controller.dart';
+import 'package:design_manager/presentation/pages/profile/profile_controller.dart';
+
 import 'package:design_manager/presentation/pages/tasklist/tasklist_page.dart';
 import 'package:design_manager/presentation/pages/review_task/review_task_page.dart';
 import 'package:design_manager/presentation/pages/reports/reports_page.dart';
 import 'package:design_manager/presentation/pages/profile/profile_page.dart';
 import 'package:design_manager/presentation/widgets/bottom_navbar.dart';
-import 'package:provider/provider.dart';
-
-// IMPORT CREATE TASK FORM
-import 'package:design_manager/presentation/pages/create_task/create_task_form.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => TasklistController()),
-        
+
+        Provider(create: (_) => ReviewTaskController()),
+        Provider(create: (_) => ReportsController()),
+        Provider(create: (_) => ProfileController()),
       ],
+
       child: const DesignManagerApp(),
     ),
   );
@@ -34,11 +40,7 @@ class DesignManagerApp extends StatelessWidget {
         primaryColor: const Color(0xFF45D1A6),
       ),
       home: const HomePage(),
-
-      // ROUTES FLOATING ACTION BUTTON KE create_task_form
-      routes: {
-        '/task_form': (context) => const CreateTaskPage(),
-      },
+      // Jika perlu rute tambahan, bisa ditambahkan di sini
     );
   }
 }

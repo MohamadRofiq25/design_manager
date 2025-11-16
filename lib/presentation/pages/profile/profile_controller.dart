@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ProfileController {
+class ProfileController extends ChangeNotifier {
   bool isEditing = false;
 
   final userData = ValueNotifier<Map<String, dynamic>>({
@@ -20,21 +20,17 @@ class ProfileController {
 
   void toggleEditMode() {
     isEditing = !isEditing;
+    notifyListeners();
   }
 
-  void saveProfile(BuildContext context) {
+  void saveProfile() {
     userData.value = {
       ...userData.value,
       'name': nameController.text,
       'email': emailController.text,
     };
     isEditing = false;
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Profil berhasil diperbarui!'),
-        backgroundColor: Color(0xFF45D1A6),
-      ),
-    );
+    notifyListeners();
   }
 
   void logout(BuildContext context) {
@@ -61,9 +57,11 @@ class ProfileController {
     );
   }
 
+  @override
   void dispose() {
     nameController.dispose();
     emailController.dispose();
     userData.dispose();
+    super.dispose();
   }
 }

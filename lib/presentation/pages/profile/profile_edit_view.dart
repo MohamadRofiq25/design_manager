@@ -51,7 +51,7 @@ class ProfileEditView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton.icon(
-              onPressed: () => controller.saveProfile(context),
+              onPressed: () => controller.saveProfile(),
               icon: const Icon(Icons.save),
               label: const Text("Simpan"),
               style: ElevatedButton.styleFrom(

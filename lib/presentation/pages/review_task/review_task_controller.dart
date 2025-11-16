@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:design_manager/data/models/task_model.dart';
 
-class ReviewTaskController {
+class ReviewTaskController extends ChangeNotifier {
   final List<Task> proofTasks = [
     Task(
       id: '1',
@@ -24,6 +25,9 @@ class ReviewTaskController {
     final index = proofTasks.indexWhere((t) => t.id == updatedTask.id);
     if (index != -1) {
       proofTasks[index] = updatedTask;
+
+      // Wajib agar UI ter-update
+      notifyListeners();
     }
   }
 }
