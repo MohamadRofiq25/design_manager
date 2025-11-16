@@ -7,12 +7,14 @@ import 'package:design_manager/presentation/pages/profile/profile_page.dart';
 import 'package:design_manager/presentation/widgets/bottom_navbar.dart';
 import 'package:provider/provider.dart';
 
+// IMPORT CREATE TASK FORM
+import 'package:design_manager/presentation/pages/create_task/create_task_form.dart';
+
 void main() {
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => TasklistController()),
-        // Tambah controller lain kalau perlu
       ],
       child: const DesignManagerApp(),
     ),
@@ -31,6 +33,11 @@ class DesignManagerApp extends StatelessWidget {
         primaryColor: const Color(0xFF45D1A6),
       ),
       home: const HomePage(),
+
+      // ROUTES FLOATING ACTION BUTTON KE create_task_form
+      routes: {
+        '/task_form': (context) => const CreateTaskForm(),
+      },
     );
   }
 }
