@@ -15,6 +15,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => TasklistController()),
+        
       ],
       child: const DesignManagerApp(),
     ),
@@ -36,7 +37,7 @@ class DesignManagerApp extends StatelessWidget {
 
       // ROUTES FLOATING ACTION BUTTON KE create_task_form
       routes: {
-        '/task_form': (context) => const CreateTaskForm(),
+        '/task_form': (context) => const CreateTaskPage(),
       },
     );
   }
