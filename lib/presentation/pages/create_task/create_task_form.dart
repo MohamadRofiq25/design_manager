@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:design_manager/presentation/pages/create_task/create_task_controller.dart';
 
-class CreateTaskPage extends StatelessWidget {
-  const CreateTaskPage({super.key});
+class CreateTaskForm extends StatelessWidget {
+  const CreateTaskForm({super.key});
 
   @override
   Widget build(BuildContext context) {

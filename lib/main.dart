@@ -11,6 +11,8 @@ import 'package:design_manager/presentation/pages/review_task/review_task_page.d
 import 'package:design_manager/presentation/pages/reports/reports_page.dart';
 import 'package:design_manager/presentation/pages/profile/profile_page.dart';
 import 'package:design_manager/presentation/widgets/bottom_navbar.dart';
+import 'package:design_manager/presentation/pages/create_task/create_task_form.dart';
+
 
 void main() {
   runApp(
@@ -40,6 +42,9 @@ class DesignManagerApp extends StatelessWidget {
         primaryColor: const Color(0xFF45D1A6),
       ),
       home: const HomePage(),
+      routes: {
+        '/task_form': (_) => const CreateTaskForm(),
+      },
       // Jika perlu rute tambahan, bisa ditambahkan di sini
     );
   }

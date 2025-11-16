@@ -8,7 +8,7 @@ class TasklistController extends ChangeNotifier {
       title: 'Product Banner Design',
       designerName: 'Sarah',
       description: 'Banner promosi untuk produk baru.',
-      imagePath: 'assets/images/sample_design1.png',
+      imagePath: 'assets/images/login.png',
       status: 'pending',
     ),
     Task(
@@ -16,7 +16,7 @@ class TasklistController extends ChangeNotifier {
       title: 'Instagram Story Template',
       designerName: 'Ahmad',
       description: 'Template untuk story Instagram promosi.',
-      imagePath: 'assets/images/sample_design2.png',
+      imagePath: 'assets/images/login.png',
       status: 'proof',
     ),
     Task(
@@ -24,7 +24,7 @@ class TasklistController extends ChangeNotifier {
       title: 'Promo 11.11 Poster',
       designerName: 'Lina',
       description: 'Poster promosi event 11.11.',
-      imagePath: 'assets/images/sample_design2.png',
+      imagePath: 'assets/images/login.png',
       status: 'revision',
     ),
   ];
