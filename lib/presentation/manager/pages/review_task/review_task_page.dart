@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:design_manager/data/models/task_model.dart';
 
-import 'package:design_manager/presentation/pages/review_task/review_task_detail_page.dart';
-import 'package:design_manager/presentation/pages/review_task/review_task_controller.dart';
+import 'package:design_manager/presentation/manager/pages/review_task/review_task_detail_page.dart';
+import 'package:design_manager/presentation/manager/pages/review_task/review_task_controller.dart';
 
 class ReviewTaskPage extends StatefulWidget {
   const ReviewTaskPage({super.key});

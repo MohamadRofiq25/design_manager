@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:design_manager/presentation/pages/tasklist/tasklist_controller.dart';
-import 'package:design_manager/presentation/pages/tasklist/widgets/task_card.dart';
+import 'package:design_manager/presentation/manager/pages/tasklist/tasklist_controller.dart';
+import 'package:design_manager/presentation/manager/pages/tasklist/widgets/task_card.dart';
 
 class TasklistPage extends StatefulWidget {
   const TasklistPage({super.key});

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:design_manager/presentation/pages/tasklist/tasklist_controller.dart';
-import 'package:design_manager/presentation/pages/review_task/review_task_controller.dart';
-import 'package:design_manager/presentation/pages/reports/reports_controller.dart';
-import 'package:design_manager/presentation/pages/profile/profile_controller.dart';
+import 'package:design_manager/presentation/manager/pages/tasklist/tasklist_controller.dart';
+import 'package:design_manager/presentation/manager/pages/review_task/review_task_controller.dart';
+import 'package:design_manager/presentation/manager/pages/reports/reports_controller.dart';
+import 'package:design_manager/presentation/manager/pages/profile/profile_controller.dart';
 
-import 'package:design_manager/presentation/pages/tasklist/tasklist_page.dart';
-import 'package:design_manager/presentation/pages/review_task/review_task_page.dart';
-import 'package:design_manager/presentation/pages/reports/reports_page.dart';
-import 'package:design_manager/presentation/pages/profile/profile_page.dart';
-import 'package:design_manager/presentation/widgets/bottom_navbar.dart';
-import 'package:design_manager/presentation/pages/create_task/create_task_form.dart';
+import 'package:design_manager/presentation/manager/pages/tasklist/tasklist_page.dart';
+import 'package:design_manager/presentation/manager/pages/review_task/review_task_page.dart';
+import 'package:design_manager/presentation/manager/pages/reports/reports_page.dart';
+import 'package:design_manager/presentation/manager/pages/profile/profile_page.dart';
+import 'package:design_manager/presentation/manager/widgets/bottom_navbar.dart';
+import 'package:design_manager/presentation/manager/pages/create_task/create_task_form.dart';
 
 
 void main() {
@@ -19,7 +19,6 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => TasklistController()),
-
         Provider(create: (_) => ReviewTaskController()),
         Provider(create: (_) => ReportsController()),
         Provider(create: (_) => ProfileController()),

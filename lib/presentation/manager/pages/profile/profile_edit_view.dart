@@ -65,7 +65,6 @@ class ProfileEditView extends StatelessWidget {
             OutlinedButton.icon(
               onPressed: () {
                 controller.toggleEditMode();
-                (context as Element).markNeedsBuild();
               },
               icon: const Icon(Icons.cancel, color: Colors.red),
               label: const Text("Batal", style: TextStyle(color: Colors.red)),

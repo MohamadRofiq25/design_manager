@@ -32,10 +32,7 @@ class ProfileView extends StatelessWidget {
         ProfileCard(userData: user),
         const SizedBox(height: 30),
         ProfileActionButtons(
-          onEdit: () {
-            controller.toggleEditMode();
-            (context as Element).markNeedsBuild();
-          },
+          onEdit: controller.toggleEditMode,
           onLogout: () => controller.logout(context),
         ),
       ],

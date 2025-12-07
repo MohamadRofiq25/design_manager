@@ -32,15 +32,21 @@ class _ProfilePageState extends State<ProfilePage> {
         title: const Text('Profile'),
         backgroundColor: const Color(0xFF45D1A6),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: AnimatedSwitcher(
-          duration: const Duration(milliseconds: 300),
-          child: _controller.isEditing
-              ? ProfileEditView(controller: _controller)
-              : ProfileView(controller: _controller),
-        ),
+      body: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, _) {
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(16.0),
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: _controller.isEditing
+                  ? ProfileEditView(controller: _controller)
+                  : ProfileView(controller: _controller),
+            ),
+          );
+        },
       ),
+
     );
   }
 }
