@@ -1,18 +1,28 @@
+import 'package:design_manager/presentation/designer/my_task/my_task_designer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// Manager Controllers
 import 'package:design_manager/presentation/manager/pages/tasklist/tasklist_controller.dart';
 import 'package:design_manager/presentation/manager/pages/review_task/review_task_controller.dart';
 import 'package:design_manager/presentation/manager/pages/reports/reports_controller.dart';
 import 'package:design_manager/presentation/manager/pages/profile/profile_controller.dart';
 
+
+// Designer Controllers
+import 'package:design_manager/presentation/designer/my_task/my_task_designer_controller.dart'
+    as designer;
+
+// Manager Pages
 import 'package:design_manager/presentation/manager/pages/tasklist/tasklist_page.dart';
 import 'package:design_manager/presentation/manager/pages/review_task/review_task_page.dart';
 import 'package:design_manager/presentation/manager/pages/reports/reports_page.dart';
 import 'package:design_manager/presentation/manager/pages/profile/profile_page.dart';
-import 'package:design_manager/presentation/manager/widgets/bottom_navbar.dart';
 import 'package:design_manager/presentation/manager/pages/create_task/create_task_form.dart';
 
+
+// Widgets
+import 'package:design_manager/presentation/manager/widgets/bottom_navbar.dart';
 
 void main() {
   runApp(
@@ -22,8 +32,10 @@ void main() {
         Provider(create: (_) => ReviewTaskController()),
         Provider(create: (_) => ReportsController()),
         Provider(create: (_) => ProfileController()),
-      ],
 
+        ChangeNotifierProvider(create: (_) => designer.MyTaskDesignerController()),
+
+      ],
       child: const DesignManagerApp(),
     ),
   );
@@ -44,7 +56,6 @@ class DesignManagerApp extends StatelessWidget {
       routes: {
         '/task_form': (_) => const CreateTaskForm(),
       },
-      // Jika perlu rute tambahan, bisa ditambahkan di sini
     );
   }
 }
