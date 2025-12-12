@@ -9,12 +9,12 @@ class CreateTaskController extends ChangeNotifier {
   DateTime? deadline;
   File? uploadedFile;
 
-  final List<String> categories = [
-    'Poster Design',
-    'UI/UX',
-    'Photography',
-    'Videography',
-    'Social Media',
+  final List<String> designer = [
+    'Muhamad Rofiqul Abror',
+    'Muhammad Iqbal',
+    'Bagus Imam Rosyadi',
+    'Paijo Bin Tumiran',
+    'Tumini Binti Sutrisno',
   ];
 
   final formKey = GlobalKey<FormState>();

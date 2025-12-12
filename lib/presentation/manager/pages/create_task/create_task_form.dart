@@ -58,10 +58,10 @@ class CreateTaskForm extends StatelessWidget {
                     // CATEGORY
                     DropdownButtonFormField<String>(
                       decoration: const InputDecoration(
-                        labelText: "Kategori",
+                        labelText: "Pilih Designer",
                         border: OutlineInputBorder(),
                       ),
-                      items: controller.categories
+                      items: controller.designer
                           .map((c) => DropdownMenuItem(value: c, child: Text(c)))
                           .toList(),
                       onChanged: (value) => controller.category = value,

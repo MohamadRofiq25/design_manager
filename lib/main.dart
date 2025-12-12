@@ -1,4 +1,3 @@
-import 'package:design_manager/presentation/designer/my_task/my_task_designer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -10,8 +9,8 @@ import 'package:design_manager/presentation/manager/pages/profile/profile_contro
 
 
 // Designer Controllers
-import 'package:design_manager/presentation/designer/my_task/my_task_designer_controller.dart'
-    as designer;
+// import 'package:design_manager/presentation/designer/my_task/my_task_designer_controller.dart'
+//     as designer;
 
 // Manager Pages
 import 'package:design_manager/presentation/manager/pages/tasklist/tasklist_page.dart';
@@ -33,7 +32,7 @@ void main() {
         Provider(create: (_) => ReportsController()),
         Provider(create: (_) => ProfileController()),
 
-        ChangeNotifierProvider(create: (_) => designer.MyTaskDesignerController()),
+        // ChangeNotifierProvider(create: (_) => designer.MyTaskDesignerController()),
 
       ],
       child: const DesignManagerApp(),
