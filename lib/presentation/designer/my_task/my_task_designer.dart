@@ -17,7 +17,7 @@ class _TasklistPageState extends State<MyTaskDesigner> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Task Manager'),
+          title: const Text('My Task'),
           backgroundColor: const Color(0xFF45D1A6),
         ),
         body: Padding(

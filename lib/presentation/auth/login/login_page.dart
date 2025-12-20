@@ -1,3 +1,5 @@
+import 'package:design_manager/presentation/designer/designer_home_page.dart';
+import 'package:design_manager/presentation/manager/manager_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -56,6 +58,7 @@ class _LoginPageBody extends StatelessWidget {
               const SizedBox(height: 30),
 
               TextField(
+                controller: controller.emailController,
                 decoration: InputDecoration(
                   labelText: "EMAIL ID",
                   labelStyle: const TextStyle(color: Colors.black54),
@@ -69,6 +72,7 @@ class _LoginPageBody extends StatelessWidget {
               const SizedBox(height: 16),
 
               TextField(
+                controller: controller.passwordController,
                 obscureText: controller.obscurePassword,
                 decoration: InputDecoration(
                   labelText: "PASSWORD",
@@ -106,7 +110,37 @@ class _LoginPageBody extends StatelessWidget {
                 width: double.infinity,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: controller.login,
+                  onPressed: controller.isLoading
+                    ? null
+                    : () async {
+                        try {
+                          final role = await controller.login();
+                          if (role == null) return;
+
+                          if (!context.mounted) return;
+
+                          if (role == 'manager') {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const ManagerHomePage(),
+                              ),
+                            );
+                          } else {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const DesignerHomePage(),
+                              ),
+                            );
+                          }
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text(e.toString())),
+                          );
+                        }
+                      },
+
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF00B894),
                     shape: RoundedRectangleBorder(
@@ -114,13 +148,8 @@ class _LoginPageBody extends StatelessWidget {
                     ),
                     elevation: 4,
                   ),
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                  child: Text(
+                    controller.isLoading ? "Loading..." : "Login",
                   ),
                 ),
               ),

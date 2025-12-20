@@ -1,3 +1,13 @@
+//test supabase
+import 'package:design_manager/core/supabase/supabase_client.dart';
+import 'package:design_manager/presentation/auth/login/login_page.dart';
+
+//supabase
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'core/config/supabase_config.dart';
+
+
+// import 'package:design_manager/presentation/designer/designer_home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,8 +19,8 @@ import 'package:design_manager/presentation/manager/pages/profile/profile_contro
 
 
 // Designer Controllers
-// import 'package:design_manager/presentation/designer/my_task/my_task_designer_controller.dart'
-//     as designer;
+import 'package:design_manager/presentation/designer/my_task/my_task_designer_controller.dart'
+    as designer;
 
 // Manager Pages
 import 'package:design_manager/presentation/manager/pages/tasklist/tasklist_page.dart';
@@ -23,7 +33,23 @@ import 'package:design_manager/presentation/manager/pages/create_task/create_tas
 // Widgets
 import 'package:design_manager/presentation/manager/widgets/bottom_navbar.dart';
 
-void main() {
+void testSupabaseInit() {
+  final user = supabase.auth.currentUser;
+  debugPrint('Supabase connected. Current user: $user');
+}
+
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Supabase.initialize(
+    url: SupabaseConfig.url,
+    anonKey: SupabaseConfig.anonKey,
+  );
+
+  // await testSupabaseConnection();
+
+  
   runApp(
     MultiProvider(
       providers: [
@@ -32,7 +58,7 @@ void main() {
         Provider(create: (_) => ReportsController()),
         Provider(create: (_) => ProfileController()),
 
-        // ChangeNotifierProvider(create: (_) => designer.MyTaskDesignerController()),
+        ChangeNotifierProvider(create: (_) => designer.MyTaskDesignerController()),
 
       ],
       child: const DesignManagerApp(),
@@ -51,7 +77,7 @@ class DesignManagerApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: const Color(0xFF45D1A6),
       ),
-      home: const HomePage(),
+      home: const LoginPage(),
       routes: {
         '/task_form': (_) => const CreateTaskForm(),
       },
